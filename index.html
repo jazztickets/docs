@@ -1,1 +1,436 @@
-test
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>choria game guide</title>
+		<style>
+			body {
+				background-color: #151515;
+				color: #DDD;
+				margin: 20px;
+			}
+
+			a {
+				color: #bedd5f;
+				text-decoration: none;
+			}
+
+			a:hover {
+				color: #784;
+			}
+
+			h1 {
+				font-size: 48px;
+			}
+
+			h2 {
+				font-size: 32px;
+			}
+
+			h3 {
+				font-size: 22px;
+			}
+
+			figure {
+				margin: 0px 0px 20px 0px;
+			}
+
+			figcaption {
+				font-style: italic;
+			}
+
+			section {
+				padding-bottom: 20px;
+			}
+
+			#tips li {
+				margin-bottom: 10px;
+			}
+
+			.subli {
+				list-style-type: lower-alpha;
+				padding-left: 15px;
+			}
+
+			.container {
+				max-width: 1000px;
+				margin: 0 auto;
+			}
+
+			.container img {
+				max-width: 100%;
+			}
+
+			.gallery img {
+				width: 200px;
+			}
+
+			.thumb {
+				width: 400px;
+			}
+
+			.enlarge {
+				cursor: pointer;
+			}
+
+			#overlay {
+				display: none;
+				position: fixed;
+				width: 100%;
+				height: 100%;
+				background-color: rgba(0, 0, 0, 0.5);
+				z-index: 1000;
+				left: 0;
+				top: 0;
+				vertical-align: middle;
+				text-align: center;
+				cursor: pointer;
+			}
+
+			#full_image {
+				max-width: 90%;
+				max-height: 90%;
+				cursor: pointer;
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				margin: auto;
+				box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, 1);
+			}
+
+			#menu {
+				overflow: auto;
+				background-color: #222;
+				position: fixed;
+				left: 25px;
+				top: 50px;
+				border: solid 1px #333;
+				padding: 0px 20px 0px 0px;
+			}
+
+			@media screen and (max-width: 1420px) {
+				#menu {
+					position: relative;
+					margin: 0 auto;
+					max-width: 1000px;
+					top: 15px;
+					left: 0px;
+					padding: 30px;
+				}
+			}
+		</style>
+		<script type="text/javascript">
+			overlay = null;
+			full_image = null;
+
+			function enlarge(node) {
+				show(overlay);
+				full_image = document.createElement("img");
+				full_image.id = "full_image";
+				overlay.appendChild(full_image)
+				path = node.src.replace("thumb_", "");
+				full_image.src = path;
+			}
+
+			function show(node) {
+				node.style.display = "inline";
+			}
+
+			function hide(node) {
+				node.style.display = "none";
+				if(full_image)
+					overlay.removeChild(full_image)
+
+				full_image = null;
+			}
+
+			function keydown(event) {
+				if(event.which == 27 || event.which == 81)
+					hide(overlay);
+			}
+
+			window.onload = function() {
+				images = document.getElementsByClassName("enlarge");
+				for(i = 0; i < images.length; i++)
+					images[i].addEventListener('click', function() { enlarge(this); });
+
+				overlay = document.getElementById("overlay");
+				overlay.addEventListener('click', function() { hide(this); });
+
+				full_image = document.getElementById("full_image");
+
+				document.addEventListener("keydown", keydown, false);
+			}
+		</script>
+	</head>
+	<body>
+		<div id="overlay">
+		</div>
+		<div id="menu">
+			<ol>
+				<li><a href="#intro">Intro</a></li>
+				<li><a href="#playing">Playing</a></li>
+				<li>
+					<a href="#howto">How to play</a>
+					<ol class="subli">
+						<li><a href="#interface">Interface</a></li>
+						<li><a href="#inventory">Inventory</a></li>
+						<li><a href="#healing">Healing</a></li>
+						<li><a href="#battle">Battle</a></li>
+						<li><a href="#skills">Skills</a></li>
+						<li><a href="#vendors">Vendors</a></li>
+						<li><a href="#blacksmiths">Blacksmiths</a></li>
+						<li><a href="#traders">Traders</a></li>
+						<li><a href="#bosses">Bosses</a></li>
+					</ol>
+				</li>
+				<li>
+					<a href="#multiplayer">Multiplayer</a>
+					<ol class="subli">
+						<li><a href="#battles">Battles</a></li>
+						<li><a href="#chat">Chat</a></li>
+						<li><a href="#parties">Parties</a></li>
+						<li><a href="#trading">Trading</a></li>
+						<li><a href="#pvp">PVP</a></li>
+					</ol>
+				</li>
+				<li><a href="#tips">Gameplay Tips</a></li>
+				<li><a href="#glossary">Glossary</a></li>
+			</ol>
+		</div>
+		<div class="container">
+			<section id="intro">
+				<h1>Welcome to choria</h1>
+				<p>Finally, an MMORPG that's all about grinding and doing chores.</p>
+				<h3>Screenshots</h3>
+				<div class="gallery">
+					<img class="enlarge" src="img/thumb_0_fight.png"/>
+					<img class="enlarge" src="img/thumb_0_party.png"/>
+					<img class="enlarge" src="img/thumb_0_mage.png"/>
+					<img class="enlarge" src="img/thumb_0_necro.png"/>
+					<img class="enlarge" src="img/thumb_0_trader.png"/>
+					<img class="enlarge" src="img/thumb_0_games.png"/>
+					<img class="enlarge" src="img/thumb_0_trade.png"/>
+					<img class="enlarge" src="img/thumb_0_skills.png"/>
+					<img class="enlarge" src="img/thumb_0_smith.png"/>
+				</div>
+			</section>
+			<section id="playing">
+				<h2>Playing the game</h2>
+				<p>After launching the game, click <strong>Play</strong> to show the character select screen. To create a character, select an empty slot.</p>
+				<figure>
+					<img src="img/thumb_1_newchar.png" class="enlarge thumb"/>
+					<figcaption>Character create screen</figcaption>
+				</figure>
+				<p>Select a portrait and starting build, which determines your starting gear and skills. All skills can be acquired at some point in the game, so a warrior could later become a mage. Selecting <strong>Hardcore</strong> will make your character have one life. Not recommended for beginners!</p>
+				<p>Once your character is created, click <strong>Play</strong> to enter the world of choria.</p>
+			</section>
+			<section id="howto">
+				<h2>How to play</h2>
+				<p>Upon entering the world, you will start in a safe town where you can buy equipment and supplies, learn new skills, change skills levels (respec), trade, gamble and more.</p>
+				<figure>
+					<img src="img/thumb_2_hud.png" class="enlarge thumb"/>
+					<figcaption>Starting town</figcaption>
+				</figure>
+				<p>Use <strong>arrow keys</strong> or the keys <strong>ESDF</strong> to move your character around. All keys can be remapped in the game options.</p>
+			</section>
+			<section id="interface">
+				<h3>Interface</h3>
+				<p>Your current gold amount is shown in the bottom-left of the screen. Gold is used to buy equipment, upgrade gear, and more.</p>
+				<figure>
+					<img src="img/2_hud_gold.png"/>
+				</figure>
+				<p>At the bottom of the screen is your belt, skill bar, experience bar, health, mana, and any status effects applied to your character. The text in the corner of the icons represent the hotkeys pressed to activate them.</p>
+				<figure>
+					<img src="img/2_hud_bar.png"/>
+				</figure>
+				<p>The top of the screen shows various screens or actions you can activate, the world clock, and pvp zones.</p>
+				<figure>
+					<img src="img/2_hud_buttons.png"/>
+				</figure>
+				<p>Item drops from monsters will be shown in the bottom right.</p>
+				<figure>
+					<img src="img/2_hud_drops.png"/>
+				</figure>
+				Pressing <strong>Alt-Enter</strong> or clicking the icon in the top-right corner will toggle windowed/fullscreen mode.
+			</section>
+			<section id="inventory">
+				<h3>Inventory</h3>
+				<p>Pressing <strong>C</strong> will open your inventory. You can use consumables by <strong>right-clicking</strong> them. To equip new gear, simply drag it over to an equipment slot, or <strong>right-click</strong> it.</p>
+				<figure>
+					<img src="img/thumb_2_inventory.png" class="enlarge thumb"/>
+					<figcaption>Inventory and character screen</figcaption>
+				</figure>
+				<p>Most gear will have a set bonus associated with them. Check the armor pieces to see the full bonus when all pieces are equipped. Weapons contribute to the set requirements, but will add their own bonus to the set.</p>
+			</section>
+			<section id="healing">
+				<h3>Healing</h3>
+				<p>Most towns have a place to heal or recover mana for free. Simply walk over the healing pool or hit <strong>Spacebar</strong> repeatedly while standing in it.</p>
+				<figure>
+					<img src="img/thumb_2_healing.png" class="enlarge thumb"/>
+					<figcaption>Healing pool</figcaption>
+				</figure>
+			</section>
+			<section id="battle">
+				<h3>Battle</h3>
+				<p>After exploring the town, exit to the world map by traveling left or right on the topmost horizontal road. Once outside, don't travel too far from town, since you'll fight harder monsters. After a random number of steps, you'll enter battle and fight different monsters based on the zone you're in.</p>
+				<figure>
+					<img src="img/thumb_2_battle.png" class="enlarge thumb"/>
+					<figcaption>Battle screen</figcaption>
+				</figure>
+				<p>Monsters will appear on the right side, while players will be on the left. The green bar underneath your health bar represents your stamina bar. Once the stamina bar is full, you can perform an action like using a skill or item.</p>
+				<p>If you're playing a warrior, press <strong>1</strong> to select your attack skill, then hit <strong>up</strong> or <strong>down</strong> on the keyboard to change targets. Once your target is selected, press <strong>1</strong> again to confirm the action. The result of the action will fly across towards to your target, showing damage done.</p>
+				<p>Certain starting builds use different attacks, and in some cases will require certain weapon types or mana to use. Make sure to read each skill description to see the requirements.</p>
+				<p>Items can be used in battle, but only if equipped to your belt. Press the hotkey corresponding to the item when it's your turn, then press the key again to confirm the target. Outside of battle, most items can be freely used. If the item description says <em>Battle Consumable</em>, it can only be used in battle, though its effects can linger afterwards.</p>
+				<p>If you find yourself low on health, you can return to town to heal for free, north of the spawn point, or use a health potion.</p>
+				<p>Make sure to keep an eye out for the world clock. When nighttime begins at 10PM, monsters will become 50% harder! However, you will get 50% more experience and gold, so it can be useful to fight certain monsters or bosses at night. If you find it too hard, wait until 6AM for daytime to begin.</p>
+			</section>
+			<section id="skills">
+				<h3>Skills</h3>
+				<p>Defeating monsters will grant you gold, experience points (XP), and sometimes items. After getting enough XP, you'll level up, granting more max health and a skill point. Press <strong>R</strong> to show your skills.</p>
+				<figure>
+					<img src="img/thumb_2_skills.png" class="enlarge thumb"/>
+					<figcaption>Skills screen</figcaption>
+				</figure>
+				<p>Choose a skill to upgrade, then click the plus symbol beneath it. The next level stats will be shown in the description. After a few levels, you'll find that your skills can only go up to level <strong>5</strong>. Seek out an enchanter to increase the max level for each skill.</p>
+				<p>If you want to reallocate your skill points, return to the spawn point in town to allow removing points from skills. Hold <strong>Shift</strong> to add or remove 5 points at a time.</p>
+				<p>New skills can be acquired from various vendors or traders. Once the skill is in your inventory, <strong>Right-click</strong> to learn it.</p>
+			</section>
+			<section id="vendors">
+				<h3>Vendors</h3>
+				<p>When you've earned enough gold, you can return to a shop to purchase new items. <strong>Right-click</strong> to purchase an item, or drag it from the vendor to your inventory. Hold <strong>Shift</strong> to buy five at a time.</p>
+				<p>Items can be sold back for 50% of its value by <strong>Shift+Right-clicking</strong> or <strong>Shift+Ctrl+Right-clicking</strong> to sell five. Whole stacks of items can be dragged over to the vendor screen to sell.</p>
+				<figure>
+					<img src="img/thumb_2_vendor.png" class="enlarge thumb"/>
+					<figcaption>Vendor screen</figcaption>
+				</figure>
+			</section>
+			<section id="blacksmiths">
+				<h3>Blacksmiths</h3>
+				<p>Most gear can be upgraded at a blacksmith. Drag over a piece of gear to the empty slot in the window to show the upgrade price and its upgraded stats. Item stats that get upgraded show up in green. All fractional values are rounded down, but can be seen by holding <strong>Alt</strong>. Items can also be upgraded from the inventory by <strong>Ctrl+clicking</strong>.</p>
+				<p>The first blacksmith can only upgrade to level 5, so be sure to seek out more powerful blacksmiths later on.</p>
+				<figure>
+					<img src="img/thumb_2_smith.png" class="enlarge thumb"/>
+					<figcaption>Blacksmith screen</figcaption>
+				</figure>
+				<p>Set bonuses scale with the lowest level item in the set, so make sure to increase each piece's level together. Hold <strong>Alt</strong> to show the range of each stat for the bonus.</p>
+			</section>
+			<section id="traders">
+				<h3>Traders</h3>
+				<p>In your journey you will come across various traders who seek certain items in return for another. The quantity of each item is shown in the corner and will appear red until the requirements are met.</p>
+				<figure>
+					<img src="img/thumb_2_trader.png" class="enlarge thumb"/>
+					<figcaption>Soothing Salve trader</figcaption>
+				</figure>
+			</section>
+			<section id="bosses">
+				<h3>Bosses</h3>
+				<p>When you're strong enough, you'll delve deep enough in area to reach a powerful boss. Boss battles are difficult, but come with great rewards and usually an important item that can be traded. Bosses respawn after a period of time, but beware: the difficulty and rewards grow with each kill!</p>
+				<figure>
+					<img src="img/2_boss.png"/>
+				</figure>
+			</section>
+			<section id="multiplayer">
+				<h2>Multiplayer</h2>
+				<p>While solo play is fun, choria can also be experienced with (or against) other players over the network. From the main menu, click <strong>Join Server</strong> to browse a list of local servers, or type in a host by hand. The default port of <strong>31234</strong> will be used if not specified in the host field.</p>
+				<figure>
+					<img src="img/thumb_3_browse.png" class="enlarge thumb"/>
+					<figcaption>Browse Servers screen</figcaption>
+				</figure>
+				<p>If you have two or more people on a LAN, the easiest way to play together is for one person to start the game by clicking <strong>Play</strong> from the main menu. This creates a server in the background that allows others to join from the Browse screen. However, if the host player exits the game, all players will be disconnected.</p>
+				<p>If you want more control, you can start a dedicated server. See the README file for more details.</p>
+				<figure>
+					<img src="img/thumb_3_account.png" class="enlarge thumb"/>
+					<figcaption>Login screen</figcaption>
+				</figure>
+				<p>After connecting, you can log into the server with your credentials, or type in a username and password, then click <strong>Create</strong> to make a new account.</p>
+			</section>
+			<section id="battles">
+				<h3>Battles</h3>
+				<p>Once inside the game together, there are a number of ways you can interact with each other. If you're outside town and near each other when one person enters battle, nearby players will be pulled into the same battle. Up to <strong>eight</strong> players can battle together this way. You won't be pulled in if you have any inventory or skill screens open. Rewards will be split with all surviving players.</p>
+				<p>If you see an existing battle going on (denoted by the two swords symbol), press <strong>G</strong> to join that battle while within one tile away.</p>
+				<figure>
+					<img src="img/3_join.png"/>
+				</figure>
+				<p>The more people in battle, the harder the fight will be. Boss battles will be extra hard with every additional player, so make sure to have a well balanced team!</p>
+			</section>
+			<section id="chat">
+				<h3>Chat</h3>
+				<p>While in-game, you can message each other by pressing <strong>Enter</strong>. Everyone on the server will be able to see your message, even if they're on separate maps. Pressing <strong>Enter</strong> will also show previous messages, including system messages.</p>
+			</section>
+			<section id="parties">
+				<h3>Parties</h3>
+				<p>If you want to play alone or with only a select group of people, you can join a private party. Hit <strong>P</strong> to type in a party name. Anyone else with that party name will be able to see the direction of each other when on the same map. Only players in your party can battle together, although you can still join players that have no party.</p>
+			</section>
+			<section id="trading">
+				<h3>Trading</h3>
+				<p>Once you reach level <strong>3</strong>, you'll be able trade with other players within <strong>10</strong> levels of you. Hit <strong>T</strong> and wait for a player to come near you. Once they also hit <strong>T</strong>, the trade screen will appear. You'll be able to trade gold and items that aren't trade restricted. Once both players hit <strong>Accept</strong>, the trade window will close and items will be swapped.</p>
+				<figure>
+					<img src="img/thumb_2_trade.png" class="enlarge thumb"/>
+					<figcaption>Trading with another player</figcaption>
+				</figure>
+				<p>If you play as the Beggar, you'll be able to trade at level <strong>1</strong>. <em>Spare some change?</em></p>
+			</section>
+			<section id="pvp">
+				<h3>PVP</h3>
+				<p>The Hunter starting build has a special skill that allows for PVP. Find a victim standing in a PVP zone, then use the skill to fight them. If you win, you'll get a portion of their gold. However, you will also earn yourself a bounty that will be announced globally on the server. Anyone with the <strong>Bounty Hunt</strong> skill can attempt to claim your bounty, anywhere in the game, including towns.</p>
+				<figure>
+					<img src="img/3_hunt.png"/>
+					<img src="img/3_bountyhunt.png"/>
+				</figure>
+			</section>
+			<section id="tips">
+				<h2>Gameplay Tips</h2>
+				<ul>
+					<li>Carry torches! Many caves in the game are too dark otherwise. It's also helpful during night time. The torch timer is paused during battle so they can last a long time.</li>
+					<li>Similarly, always carry at least one Teleport Scroll. You can easily return to your spawn point this way if you're low on supplies or too far from town.</li>
+					<li>You can use the mouse to target after using an action. Hover your mouse over the target's portrait, then click to confirm the action. This is useful when you need to quickly target a key enemy or heal a particular party member.</li>
+					<li>Buying or trading for maps can help you discover areas or secrets. Look for question marks on the map for points of interest.</li>
+					<li>Gambling is a good way to pass the night or to earn some quick gold on a lucky drop. Some items can only be found while gambling.</li>
+					<li>It's a good idea to write things down, such as trader locations or vendors. Even if you don't need them now, you might later.</li>
+					<li>Firebombs are a great battle consumable early on, and can easily kill ghosts. Check the trader at the weapon shop.</li>
+					<li>If you find yourself taking too much damage, try using crab legs during battle, or equipping a shield for damage reduction. In most cases getting a few levels or upgrades can make a big impact.</li>
+				</ul>
+			</section>
+			<section id="glossary">
+				<h2>Glossary</h2>
+				<p><strong>Armor</strong><br>Increases your physical resist stat, though with diminishing returns.</p>
+				<p><strong>Attack Damage</strong><br>Damage done with an attack skill.</p>
+				<p><strong>Attack Power</strong><br>Modifies damage of attack skills.</p>
+				<p><strong>Attack Skill</strong><br>A skill with a brown background color that deals weapon or shield damage. Most monsters use attack skills.</p>
+				<p><strong>Battle Speed</strong><br>Modifies how fast your stamina bar refills in battle.</p>
+				<p><strong>Belt</strong><br>The bar at the bottom of the screen used for equipping consumables. The belt can be upgraded to allow for more items.</p>
+				<p><strong>Bleed Power</strong><br>Modifies bleeding damage output.</p>
+				<p><strong>Cold Power</strong><br>Modifies cold damage output.</p>
+				<p><strong>Cooldown</strong><br>A period of time before a skill or item can be used again.</p>
+				<p><strong>Damage Block</strong><br>Reduces incoming attack damage by a flat amount before any other reductions.</p>
+				<p><strong>Difficulty</strong><br>Modifies the max health and damage of monsters. Also increases gold and XP given.</p>
+				<p><strong>Evasion</strong><br>Chance to completely ignore attacks.</p>
+				<p><strong>Fire Power</strong><br>Modifies fire damage output and torch duration.</p>
+				<p><strong>Heal Power</strong><br>Modifies the strength of your healing potions, healing spells, health regen, or certain procs.</p>
+				<p><strong>Hit Chance</strong><br>Determines the chance to hit a target with an attack skill.</p>
+				<p><strong>Initiative</strong><br>The bonus to starting stamina in battle.</p>
+				<p><strong>Lightning Power</strong><br>Modifies lightning damage output.</p>
+				<p><strong>Mana Power</strong><br>Modifies the strength of your mana potions, certain spells like Magic Barrier, mana regen, or certain procs.</p>
+				<p><strong>Mana Shield</strong><br>Converts a portion of the damage you take to mana damage.</p>
+				<p><strong>Move Speed</strong><br>Modifies the movement speed of your character.</p>
+				<p><strong>Passive Skill</strong><br>A skill with a gray background color that must be equipped to the skill bar to have any effect.</p>
+				<p><strong>Pet Power</strong><br>Modifies the stats of summons.</p>
+				<p><strong>Physical Power</strong><br>Modifies physical damage output.</p>
+				<p><strong>Pierce</strong><br>Extra damage added to attacks that ignores armor and damage block.</p>
+				<p><strong>Poison Power</strong><br>Modifies poison damage output.</p>
+				<p><strong>Proc</strong><br>An effect that is triggered randomly when an action is used.</p>
+				<p><strong>Resist</strong><br>Reduces incoming damage for a particular damage type. Stun resist reduces stun and slow duration.</p>
+				<p><strong>Skill Bar</strong><br>The bar at the bottom of the screen that holds active or passive skills. Can be upgraded to hold a total of 8 skills.</p>
+				<p><strong>Slowed</strong><br>An effect that reduces battle speed and move speed.</p>
+				<p><strong>Spell Damage</strong><br>Modifies damage output of spells.</p>
+				<p><strong>Spell</strong><br>A skill with a blue background color that has a mana cost.</p>
+				<p><strong>Stamina Bar</strong><br>The green bar in battle that lets you perform an action when full.</p>
+				<p><strong>Stunned</strong><br>An effect that reduces battle speed to 5% for a period of time.</p>
+				<p><strong>XP</strong><br>Experience points.</p>
+			</section>
+		</div>
+	</body>
+</html>
