@@ -73,6 +73,15 @@
 				cursor: pointer;
 			}
 
+			.horizontal > img {
+				vertical-align: middle;
+			}
+
+			.horizontal > figcaption {
+				display: inline;
+				margin-left: 10px;
+			}
+
 			#overlay {
 				display: none;
 				position: fixed;
@@ -190,6 +199,7 @@
 					<a href="#multiplayer">Multiplayer</a>
 					<ol class="subli">
 						<li><a href="#battles">Battles</a></li>
+						<li><a href="#status">Status Icons</a></li>
 						<li><a href="#chat">Chat</a></li>
 						<li><a href="#parties">Parties</a></li>
 						<li><a href="#trading">Trading</a></li>
@@ -299,7 +309,7 @@
 					<img src="img/thumb_2_skills.png" class="enlarge thumb"/>
 					<figcaption>Skills screen</figcaption>
 				</figure>
-				<p>Choose a skill to upgrade, then click the plus symbol beneath it. The next level stats will be shown in the description. After a few levels, you'll find that your skills can only go up to level <strong>5</strong>. Seek out an enchanter to increase the max level for each skill.</p>
+				<p>Choose a skill to upgrade, then click the plus icon beneath it. The next level stats will be shown in the description. After a few levels, you'll find that your skills can only go up to level <strong>5</strong>. Seek out an enchanter to increase the max level for each skill.</p>
 				<p>If you want to reallocate your skill points, return to the spawn point in town to allow removing points from skills. Hold <strong>Shift</strong> to add or remove 5 points at a time.</p>
 				<p>New skills can be acquired from various vendors or traders. Once the skill is in your inventory, <strong>Right-click</strong> to learn it.</p>
 			</section>
@@ -355,11 +365,47 @@
 			<section id="battles">
 				<h3>Battles</h3>
 				<p>Once inside the game together, there are a number of ways you can interact with each other. If you're outside town and near each other when one person enters battle, nearby players will be pulled into the same battle. Up to <strong>eight</strong> players can battle together this way. You won't be pulled in if you have any inventory or skill screens open. Rewards will be split with all surviving players.</p>
-				<p>If you see an existing battle going on (denoted by the two swords symbol), press <strong>G</strong> to join that battle while within one tile away.</p>
+				<p>If you see an existing battle going on (denoted by the swords icon), press <strong>G</strong> to join that battle while within one tile away.</p>
 				<figure>
 					<img src="img/3_join.png"/>
 				</figure>
 				<p>The more people in battle, the harder the fight will be. Boss battles will be extra hard with every additional player, so make sure to have a well balanced team!</p>
+			</section>
+			<section id="status">
+				<h3>Status Icons</h3>
+				<p>There are many different icons that can appear on a player to show their status. A player with a status icon over them will not be pulled into battle, however you can still attack them with a PVP skill.</p>
+				<figure class="horizontal">
+					<img src="img/2_status_inv.png" alt="Inventory is open"/>
+					<figcaption>Inventory is open</figcaption>
+				</figure>
+				<figure class="horizontal">
+					<img src="img/2_status_pause.png" alt="Menu is open"/>
+					<figcaption>Menu is open</figcaption>
+				</figure>
+				<figure class="horizontal">
+					<img src="img/2_status_skills.png" alt="Skills screen is open"/>
+					<figcaption>Skills screen is open</figcaption>
+				</figure>
+				<figure class="horizontal">
+					<img src="img/2_status_trade.png" alt="Trade screen is open"/>
+					<figcaption>Trade screen is open</figcaption>
+				</figure>
+				<figure class="horizontal">
+					<img src="img/2_status_vendor.png" alt="Vendor screen is open"/>
+					<figcaption>Vendor screen is open</figcaption>
+				</figure>
+				<figure class="horizontal">
+					<img src="img/2_status_teleport.png" alt="Teleporting"/>
+					<figcaption>Teleporting</figcaption>
+				</figure>
+				<figure class="horizontal">
+					<img src="img/2_status_battle.png" alt="In battle"/>
+					<figcaption>In battle</figcaption>
+				</figure>
+				<figure class="horizontal">
+					<img src="img/2_status_dead.png" alt="Player is dead"/>
+					<figcaption>Player is dead</figcaption>
+				</figure>
 			</section>
 			<section id="chat">
 				<h3>Chat</h3>
