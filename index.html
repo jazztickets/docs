@@ -130,7 +130,7 @@
 				}
 			}
 		</style>
-		<script type="text/javascript">
+		<script>
 			overlay = null;
 			full_image = null;
 
@@ -141,6 +141,7 @@
 				overlay.appendChild(full_image)
 				path = node.src.replace("thumb_", "");
 				full_image.src = path;
+				full_image.alt = node.alt;
 			}
 
 			function show(node) {
@@ -216,22 +217,22 @@
 				<p>Finally, an MMORPG that's all about grinding and doing chores.</p>
 				<h3>Screenshots</h3>
 				<div class="gallery">
-					<img class="enlarge" src="img/thumb_0_fight.png"/>
-					<img class="enlarge" src="img/thumb_0_party.png"/>
-					<img class="enlarge" src="img/thumb_0_mage.png"/>
-					<img class="enlarge" src="img/thumb_0_necro.png"/>
-					<img class="enlarge" src="img/thumb_0_trader.png"/>
-					<img class="enlarge" src="img/thumb_0_games.png"/>
-					<img class="enlarge" src="img/thumb_0_trade.png"/>
-					<img class="enlarge" src="img/thumb_0_skills.png"/>
-					<img class="enlarge" src="img/thumb_0_smith.png"/>
+					<img class="enlarge" src="img/thumb_0_fight.png" alt="Fighting"/>
+					<img class="enlarge" src="img/thumb_0_party.png" alt="Party Battle"/>
+					<img class="enlarge" src="img/thumb_0_mage.png" alt="Mage Battle"/>
+					<img class="enlarge" src="img/thumb_0_necro.png" alt="Necro Battle"/>
+					<img class="enlarge" src="img/thumb_0_trader.png" alt="Trader"/>
+					<img class="enlarge" src="img/thumb_0_games.png" alt="Gambling"/>
+					<img class="enlarge" src="img/thumb_0_trade.png" alt="Trading"/>
+					<img class="enlarge" src="img/thumb_0_skills.png" alt="Skills"/>
+					<img class="enlarge" src="img/thumb_0_smith.png" alt="Blacksmith"/>
 				</div>
 			</section>
 			<section id="playing">
 				<h2>Playing the game</h2>
 				<p>After launching the game, click <strong>Play</strong> to show the character select screen. To create a character, select an empty slot.</p>
 				<figure>
-					<img src="img/thumb_1_newchar.png" class="enlarge thumb"/>
+					<img src="img/thumb_1_newchar.png" class="enlarge thumb" alt="Character create screen"/>
 					<figcaption>Character create screen</figcaption>
 				</figure>
 				<p>Select a portrait and starting build, which determines your starting gear and skills. All skills can be acquired at some point in the game, so a warrior could later become a mage. Selecting <strong>Hardcore</strong> will make your character have one life. Not recommended for beginners!</p>
@@ -241,7 +242,7 @@
 				<h2>How to play</h2>
 				<p>Upon entering the world, you will start in a safe town where you can buy equipment and supplies, learn new skills, change skills levels (respec), trade, gamble and more.</p>
 				<figure>
-					<img src="img/thumb_2_hud.png" class="enlarge thumb"/>
+					<img src="img/thumb_2_hud.png" class="enlarge thumb" alt="Starting town"/>
 					<figcaption>Starting town</figcaption>
 				</figure>
 				<p>Use <strong>arrow keys</strong> or the keys <strong>ESDF</strong> to move your character around. All keys can be remapped in the game options.</p>
@@ -250,19 +251,19 @@
 				<h3>Interface</h3>
 				<p>Your current gold amount is shown in the bottom-left of the screen. Gold is used to buy equipment, upgrade gear, and more.</p>
 				<figure>
-					<img src="img/2_hud_gold.png"/>
+					<img src="img/2_hud_gold.png" alt="Gold"/>
 				</figure>
 				<p>At the bottom of the screen is your belt, skill bar, experience bar, health, mana, and any status effects applied to your character. The text in the corner of the icons represent the hotkeys pressed to activate them.</p>
 				<figure>
-					<img src="img/2_hud_bar.png"/>
+					<img src="img/2_hud_bar.png" alt="Bottom HUD"/>
 				</figure>
 				<p>The top of the screen shows various screens or actions you can activate, the world clock, and pvp zones.</p>
 				<figure>
-					<img src="img/2_hud_buttons.png"/>
+					<img src="img/2_hud_buttons.png" alt="Top HUD"/>
 				</figure>
 				<p>Item drops from monsters will be shown in the bottom right.</p>
 				<figure>
-					<img src="img/2_hud_drops.png"/>
+					<img src="img/2_hud_drops.png" alt="Item drops"/>
 				</figure>
 				Pressing <strong>Alt-Enter</strong> or clicking the icon in the top-right corner will toggle windowed/fullscreen mode.
 			</section>
@@ -270,12 +271,12 @@
 				<h3>Inventory</h3>
 				<p>Pressing <strong>C</strong> will open your inventory. You can use consumables by <strong>right-clicking</strong> them. To equip new gear, simply drag it over to an equipment slot, or <strong>right-click</strong> it.</p>
 				<figure>
-					<img src="img/thumb_2_inventory.png" class="enlarge thumb"/>
+					<img src="img/thumb_2_inventory.png" class="enlarge thumb" alt="Inventory and character screen"/>
 					<figcaption>Inventory and character screen</figcaption>
 				</figure>
 				<p>In addition to the main inventory, there are two additional hidden screens. Click the key icon near the top left to show keys you've added to your keychain. Click the unlock icon to show your unlocked upgrades.</p>
 				<figure>
-					<img src="img/2_tabs.png"/>
+					<img src="img/2_tabs.png" alt="Inventory tabs"/>
 					<figcaption>Inventory tabs</figcaption>
 				</figure>
 				<p>Most gear will have a set bonus associated with them. Check the armor pieces to see the full bonus when all pieces are equipped. Weapons contribute to the set requirements, but will add their own bonus to the set.</p>
@@ -284,7 +285,7 @@
 				<h3>Healing</h3>
 				<p>Most towns have a place to heal or recover mana for free. Simply walk over the healing pool or hit <strong>Spacebar</strong> repeatedly while standing in it.</p>
 				<figure>
-					<img src="img/thumb_2_healing.png" class="enlarge thumb"/>
+					<img src="img/thumb_2_healing.png" class="enlarge thumb" alt="Healing pool"/>
 					<figcaption>Healing pool</figcaption>
 				</figure>
 			</section>
@@ -292,7 +293,7 @@
 				<h3>Battle</h3>
 				<p>After exploring the town, exit to the world map by traveling left or right on the topmost horizontal road. Once outside, don't travel too far from town, since you'll fight harder monsters. After a random number of steps, you'll enter battle and fight different monsters based on the zone you're in.</p>
 				<figure>
-					<img src="img/thumb_2_battle.png" class="enlarge thumb"/>
+					<img src="img/thumb_2_battle.png" class="enlarge thumb" alt="Battle screen"/>
 					<figcaption>Battle screen</figcaption>
 				</figure>
 				<p>Monsters will appear on the right side, while players will be on the left. The green bar underneath your health bar represents your stamina bar. Once the stamina bar is full, you can perform an action like using a skill or item.</p>
@@ -306,7 +307,7 @@
 				<h3>Skills</h3>
 				<p>Defeating monsters will grant you gold, experience points (XP), and sometimes items. After getting enough XP, you'll level up, granting more max health and a skill point. Press <strong>R</strong> to show your skills.</p>
 				<figure>
-					<img src="img/thumb_2_skills.png" class="enlarge thumb"/>
+					<img src="img/thumb_2_skills.png" class="enlarge thumb" alt="Skills screen"/>
 					<figcaption>Skills screen</figcaption>
 				</figure>
 				<p>Choose a skill to upgrade, then click the plus icon beneath it. The next level stats will be shown in the description. After a few levels, you'll find that your skills can only go up to level <strong>5</strong>. Seek out an enchanter to increase the max level for each skill.</p>
@@ -318,7 +319,7 @@
 				<p>When you've earned enough gold, you can return to a shop to purchase new items. <strong>Right-click</strong> to purchase an item, or drag it from the vendor to your inventory. Hold <strong>Shift</strong> to buy five at a time.</p>
 				<p>Items can be sold back for 50% of its value by <strong>Shift+Right-clicking</strong> or <strong>Shift+Ctrl+Right-clicking</strong> to sell five. Whole stacks of items can be dragged over to the vendor screen to sell.</p>
 				<figure>
-					<img src="img/thumb_2_vendor.png" class="enlarge thumb"/>
+					<img src="img/thumb_2_vendor.png" class="enlarge thumb" alt="Vendor screen"/>
 					<figcaption>Vendor screen</figcaption>
 				</figure>
 			</section>
@@ -327,7 +328,7 @@
 				<p>Most gear can be upgraded at a blacksmith. Drag over a piece of gear to the empty slot in the window to show the upgrade price and its upgraded stats. Item stats that get upgraded show up in green. All fractional values are rounded down, but can be seen by holding <strong>Alt</strong>. Items can also be upgraded from the inventory by <strong>Ctrl+clicking</strong>.</p>
 				<p>The first blacksmith can only upgrade to level 5, so be sure to seek out more powerful blacksmiths later on.</p>
 				<figure>
-					<img src="img/thumb_2_smith.png" class="enlarge thumb"/>
+					<img src="img/thumb_2_smith.png" class="enlarge thumb" alt="Blacksmith screen"/>
 					<figcaption>Blacksmith screen</figcaption>
 				</figure>
 				<p>Set bonuses scale with the lowest level item in the set, so make sure to increase each piece's level together. Hold <strong>Alt</strong> to show the range of each stat for the bonus.</p>
@@ -336,7 +337,7 @@
 				<h3>Traders</h3>
 				<p>In your journey you will come across various traders who seek certain items in return for another. The quantity of each item is shown in the corner and will appear red until the requirements are met.</p>
 				<figure>
-					<img src="img/thumb_2_trader.png" class="enlarge thumb"/>
+					<img src="img/thumb_2_trader.png" class="enlarge thumb" alt="Soothing Salve trader"/>
 					<figcaption>Soothing Salve trader</figcaption>
 				</figure>
 			</section>
@@ -344,20 +345,20 @@
 				<h3>Bosses</h3>
 				<p>When you're strong enough, you'll delve deep enough in area to reach a powerful boss. Boss battles are difficult, but come with great rewards and usually an important item that can be traded. Bosses respawn after a period of time, but beware: the difficulty and rewards grow with each kill!</p>
 				<figure>
-					<img src="img/2_boss.png"/>
+					<img src="img/2_boss.png" alt="Boss battle"/>
 				</figure>
 			</section>
 			<section id="multiplayer">
 				<h2>Multiplayer</h2>
 				<p>While solo play is fun, choria can also be experienced with (or against) other players over the network. From the main menu, click <strong>Join Server</strong> to browse a list of local servers, or type in a host by hand. The default port of <strong>31234</strong> will be used if not specified in the host field.</p>
 				<figure>
-					<img src="img/thumb_3_browse.png" class="enlarge thumb"/>
+					<img src="img/thumb_3_browse.png" class="enlarge thumb" alt="Browse Servers screen"/>
 					<figcaption>Browse Servers screen</figcaption>
 				</figure>
 				<p>If you have two or more people on a LAN, the easiest way to play together is for one person to start the game by clicking <strong>Play</strong> from the main menu. This creates a server in the background that allows others to join from the Browse screen. However, if the host player exits the game, all players will be disconnected.</p>
 				<p>If you want more control, you can start a dedicated server. See the README file for more details.</p>
 				<figure>
-					<img src="img/thumb_3_account.png" class="enlarge thumb"/>
+					<img src="img/thumb_3_account.png" class="enlarge thumb" alt="Login screen"/>
 					<figcaption>Login screen</figcaption>
 				</figure>
 				<p>After connecting, you can log into the server with your credentials, or type in a username and password, then click <strong>Create</strong> to make a new account.</p>
@@ -367,7 +368,7 @@
 				<p>Once inside the game together, there are a number of ways you can interact with each other. If you're outside town and near each other when one person enters battle, nearby players will be pulled into the same battle. Up to <strong>eight</strong> players can battle together this way. You won't be pulled in if you have any inventory or skill screens open. Rewards will be split with all surviving players.</p>
 				<p>If you see an existing battle going on (denoted by the swords icon), press <strong>G</strong> to join that battle while within one tile away.</p>
 				<figure>
-					<img src="img/3_join.png"/>
+					<img src="img/3_join.png" alt="Join battle"/>
 				</figure>
 				<p>The more people in battle, the harder the fight will be. Boss battles will be extra hard with every additional player, so make sure to have a well balanced team!</p>
 			</section>
@@ -418,7 +419,7 @@
 				<h3>Trading</h3>
 				<p>Once you reach level <strong>3</strong>, you'll be able trade with other players within <strong>10</strong> levels of you. Hit <strong>T</strong> and wait for a player to come near you. Once they also hit <strong>T</strong>, the trade screen will appear. You'll be able to trade gold and items that aren't trade restricted. Once both players hit <strong>Accept</strong>, the trade window will close and items will be swapped.</p>
 				<figure>
-					<img src="img/thumb_2_trade.png" class="enlarge thumb"/>
+					<img src="img/thumb_2_trade.png" class="enlarge thumb" alt="Trading with another player"/>
 					<figcaption>Trading with another player</figcaption>
 				</figure>
 				<p>If you play as the Beggar, you'll be able to trade at level <strong>1</strong>. <em>Spare some change?</em></p>
@@ -427,8 +428,8 @@
 				<h3>PVP</h3>
 				<p>The Hunter starting build has a special skill that allows for PVP. Find a victim standing in a PVP zone, then use the skill to fight them. If you win, you'll get a portion of their gold. However, you will also earn yourself a bounty that will be announced globally on the server. Anyone with the <strong>Bounty Hunt</strong> skill can attempt to claim your bounty, anywhere in the game, including towns.</p>
 				<figure>
-					<img src="img/3_hunt.png"/>
-					<img src="img/3_bountyhunt.png"/>
+					<img src="img/3_hunt.png" alt="Hunt skill"/>
+					<img src="img/3_bountyhunt.png" alt="Bounty Hunt skill"/>
 				</figure>
 			</section>
 			<section id="tips">
