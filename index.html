@@ -165,6 +165,20 @@
 					left: 0px;
 					padding: 30px;
 				}
+
+				#menu ol.subli {
+					counter-reset: list a;
+				}
+
+				#menu ol.subli li {
+					display: inline;
+				}
+
+				#menu ol.subli li:before {
+					content: counter(list, lower-alpha) ".";
+					counter-increment: list;
+					padding-right: 0.25em;
+				}
 			}
 		</style>
 		<script>
