@@ -1,0 +1,279 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="description" content="Empty Clip game guide">
+		<meta name="keywords" content="empty clip, arcade, 3d, 2d, shooter, action rpg, top-down, videogame, linux, foss, open source">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="icon" type="image/png" href="img/favicon.png" />
+		<title>Empty Clip game guide</title>
+		<style>
+
+			@font-face {
+				font-family: 'Open Sans';
+				font-style: normal;
+				font-weight: 400;
+				font-display: swap;
+				src: local('Open Sans Regular'), local('OpenSans-Regular'), url('fonts/opensans_normal_400.woff2') format('woff2');
+				unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+			}
+
+			@font-face {
+				font-family: 'Open Sans';
+				font-style: italic;
+				font-weight: 400;
+				font-display: swap;
+				src: local('Open Sans Italic'), local('OpenSans-Italic'), url('fonts/opensans_italic_400.woff2') format('woff2');
+				unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+			}
+
+			@font-face {
+				font-family: 'Open Sans';
+				font-style: normal;
+				font-weight: 700;
+				font-display: swap;
+				src: local('Open Sans Bold'), local('OpenSans-Bold'), url('fonts/opensans_bold_700.woff2') format('woff2');
+				unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+			}
+
+			body {
+				background-color: #151515;
+				font-family: 'Open Sans', sans-serif;
+				color: #DDD;
+				margin: 20px;
+			}
+
+			a {
+				color: #FF0000;
+				text-decoration: none;
+			}
+
+			a:hover {
+				color: #AA0000;
+			}
+
+			h1 {
+				font-size: 48px;
+			}
+
+			h2 {
+				font-size: 32px;
+				border-bottom: 1px solid #333;
+				line-height: 1.5em;
+			}
+
+			h3 {
+				font-size: 22px;
+				border-bottom: 1px solid #333;
+				line-height: 1.5em;
+			}
+
+			h4 {
+				font-size: 20px;
+			}
+
+			figure {
+				margin: 0px 0px 20px 0px;
+			}
+
+			figcaption {
+				font-style: italic;
+			}
+
+			video {
+				width: 100%;
+			}
+
+			#tips li {
+				margin-bottom: 10px;
+			}
+
+			.subli {
+				list-style-type: lower-alpha;
+				padding-left: 15px;
+			}
+
+			.container {
+				max-width: 1000px;
+				margin: 0 auto;
+			}
+
+			.container img {
+				max-width: 100%;
+			}
+
+			.gallery img {
+				width: 195px;
+			}
+
+			.thumb {
+				width: 400px;
+			}
+
+			.enlarge {
+				cursor: pointer;
+			}
+
+			.horizontal > img {
+				vertical-align: middle;
+			}
+
+			.horizontal > figcaption {
+				display: inline;
+				margin-left: 10px;
+			}
+
+			#overlay {
+				display: none;
+				position: fixed;
+				width: 100%;
+				height: 100%;
+				background-color: rgba(0, 0, 0, 0.5);
+				z-index: 1000;
+				left: 0;
+				top: 0;
+				vertical-align: middle;
+				text-align: center;
+				cursor: pointer;
+			}
+
+			#full_image {
+				max-width: 90%;
+				max-height: 90%;
+				cursor: pointer;
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				margin: auto;
+				box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, 1);
+			}
+
+			#menu {
+				overflow: auto;
+				background-color: #222;
+				position: fixed;
+				left: 25px;
+				top: 50px;
+				border: 1px solid #333;
+				padding: 0px 20px 0px 0px;
+			}
+
+			@media screen and (max-width: 1420px) {
+				#menu {
+					position: relative;
+					margin: 0 auto;
+					max-width: 1000px;
+					top: 15px;
+					left: 0px;
+				}
+
+				#menu ol.subli {
+					counter-reset: list a;
+				}
+
+				#menu ol.subli li {
+					display: inline;
+				}
+
+				#menu ol.subli li:before {
+					content: counter(list, lower-alpha) ".";
+					counter-increment: list;
+					padding-right: 0.25em;
+				}
+			}
+		</style>
+		<script>
+			overlay = null;
+			full_image = null;
+
+			function enlarge(node) {
+				show(overlay);
+				full_image = document.createElement("img");
+				full_image.id = "full_image";
+				overlay.appendChild(full_image)
+				path = node.src.replace("thumb_", "");
+				full_image.src = path;
+				full_image.alt = node.alt;
+			}
+
+			function show(node) {
+				node.style.display = "inline";
+			}
+
+			function hide(node) {
+				node.style.display = "none";
+				if(full_image)
+					overlay.removeChild(full_image)
+
+				full_image = null;
+			}
+
+			function keydown(event) {
+				if(event.which == 27 || event.which == 81)
+					hide(overlay);
+			}
+
+			window.onload = function() {
+				images = document.getElementsByClassName("enlarge");
+				for(i = 0; i < images.length; i++)
+					images[i].addEventListener('click', function() { enlarge(this); });
+
+				overlay = document.getElementById("overlay");
+				overlay.addEventListener('click', function() { hide(this); });
+
+				full_image = document.getElementById("full_image");
+
+				document.addEventListener("keydown", keydown, false);
+			}
+		</script>
+	</head>
+	<body>
+		<div id="overlay"></div>
+		<div id="menu">
+			<ol>
+				<li><a href="#intro">Intro</a></li>
+				<li>
+					<a href="#playing">How to Play</a>
+				</li>
+				<li><a href="#tips">Gameplay Tips</a></li>
+			</ol>
+		</div>
+		<div class="container">
+			<section id="intro">
+				<h1>Empty Clip</h1>
+				<p>Empty Clip is a top-down shooter action rpg.</p>
+				<p><a href="https://github.com/jazztickets/emptyclip" target="_blank">Homepage</a></p>
+				<p><a href="https://github.com/jazztickets/emptyclip/releases" target="_blank">Download</a></p>
+				<h4>Features</h4>
+				<ul>
+					<li>Free and open-source software licensed under GPLv3</li>
+				</ul>
+				<h4>Trailer</h4>
+				<video controls="">
+					Your browser does not support the video tag.
+					<!--
+					<source src="vid/trailer.mp4" type="video/mp4">
+					<source src="vid/trailer.webm" type="video/webm">
+					-->
+				</video>
+				<h4>Screenshots</h4>
+				<div class="gallery">
+				<!--
+					<img class="enlarge" src="img/thumb_s_01.jpg"/>
+				-->
+				</div>
+			</section>
+			<section id="playing">
+				<h2>How to Play</h2>
+			</section>
+			<section id="tips">
+				<h2>Gameplay Tips</h2>
+				<ul>
+					<li></li>
+				</ul>
+			</section>
+		</div>
+	</body>
+</html>
